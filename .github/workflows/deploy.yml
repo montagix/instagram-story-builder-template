@@ -1,0 +1,33 @@
+name: Deploy Instagram Story Builder Template
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies and build
+        run: |
+          npm install
+          npm run build-storybook
+
+      # To enable multithreading
+      - name: Create _headers file
+        run: |
+          echo "/*" > ./storybook-static/_headers
+          echo "  Cross-Origin-Opener-Policy: same-origin" >> ./storybook-static/_headers
+          echo "  Cross-Origin-Embedder-Policy: require-corp" >> ./storybook-static/_headers
+
+      - name: Deploy to Netlify
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          netlify deploy --site $NETLIFY_SITE_ID --prod --auth $NETLIFY_AUTH_TOKEN --dir ./storybook-static
