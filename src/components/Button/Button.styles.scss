@@ -1,0 +1,19 @@
+.btn {
+    box-sizing: border-box;
+    padding: 6.6px 11.11px 8.4px 10.89px;
+    color: var(--accent-color);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    background-color: var(--main-color);
+    border-radius: 6px;
+    
+    &:hover:not(:disabled) {
+        cursor: pointer;
+    }
+
+    &:disabled {
+        background-color: var(--second-color);
+    }
+}

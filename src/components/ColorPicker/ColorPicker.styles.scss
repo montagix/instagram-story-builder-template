@@ -1,0 +1,29 @@
+.g-color-picker {
+
+
+  .colorpicker {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gradient-interaction {
+    order: 0;
+    margin-bottom: 16px;
+
+    & > .gradient-stops {
+      margin-top: 0px;
+    }
+  }
+
+  .color-picker-panel {
+    order: 1;
+  }
+
+  .input_rgba {
+    order: 2;
+
+    & > .input_rgba-wrap {
+      padding-top: 2px;
+    }
+  }
+}

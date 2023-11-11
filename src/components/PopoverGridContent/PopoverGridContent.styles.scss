@@ -1,0 +1,50 @@
+.popover-grid-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 1px;
+
+  &__container {
+    border-right: 1px solid #DBDBDB;
+    border-bottom: 1px solid #DBDBDB;
+
+    &:nth-child(3n) {
+      border-right: none;
+    }
+  }
+
+  &__item {
+    margin: 1px;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    aspect-ratio: 1;
+    font-size: 12px;
+    color: #000000;
+    font-weight: 500;
+
+
+
+    &--selected {
+      border-color: #0094FF;
+      color: #0094FF;
+    }
+
+    &:hover {
+      background: #E8F5FF;
+      transition: background-color ease-in 0.2s;
+    }
+  }
+
+  &__component {
+    max-width: 45px;
+    max-height: 45px;
+  }
+
+}

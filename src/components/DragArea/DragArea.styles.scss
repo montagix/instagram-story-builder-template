@@ -1,0 +1,49 @@
+.drag-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.70);
+    z-index: 3;
+    display: flex;
+
+    & > div {
+        margin: auto;
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        max-width: 204px;
+        align-items: center;
+        justify-content: center;
+
+        & > img {
+            width: 97.836px;
+            height: 95.241px;
+            object-fit: cover;
+        }
+
+        & > div {
+            color: var(--accent-color);
+            text-align: center;
+            font-family: 'SF Pro Display';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+    }
+
+    & > input[type="file"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: 4;
+        cursor: pointer;
+    }
+}

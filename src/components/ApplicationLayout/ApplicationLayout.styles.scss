@@ -1,0 +1,16 @@
+.app-layout {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
+    padding: 12px 26px 17px;
+    position: relative;
+}
+
+@media screen and (max-height: 910px) {
+    .app-layout {
+        height: 100%;
+    }
+} 

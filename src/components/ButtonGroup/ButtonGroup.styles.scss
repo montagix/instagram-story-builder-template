@@ -1,0 +1,35 @@
+.btn-group {
+  display: inline-flex;
+  gap: 1px;
+
+  &__item {
+    box-sizing: border-box;
+    width: 26px;
+    height: 26px;
+    padding: 7px 0;
+    color: var(--accent-color);
+    background-color: transparent;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & svg {
+        opacity: .6;
+        width: 100%;
+        height: 100%;
+    }
+    
+    &:hover {
+        cursor: pointer;
+    }
+
+    &[data-state='on'] {
+        background-color: #00000033;
+    }
+
+    &:hover svg, &[data-state='on'] svg {
+        opacity: unset;
+    } 
+  }
+}

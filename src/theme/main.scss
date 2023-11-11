@@ -1,0 +1,47 @@
+@use 'sass:math';
+@use 'sass:string';
+
+// Variables
+@import 'variables/breakpoints';
+@import 'variables/colors';
+@import 'variables/sizes';
+@import 'variables/typography';
+
+// Functions
+@import 'functions/spacing';
+
+// Mixins
+@import 'mixins/media-query';
+
+// Generics
+@import 'generics/utility-classes';
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: $font-sm;
+  font-family: $font-family;
+  color: $dark;
+}
+
+* {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}

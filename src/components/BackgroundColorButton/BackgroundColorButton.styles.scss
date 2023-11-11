@@ -1,0 +1,15 @@
+
+
+.bg-color-btn {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 2px solid rgba(0, 0, 0, 10%);
+
+  &__color-picker {
+    position: absolute;
+    left: 0;
+    top: 35px;
+  }
+}

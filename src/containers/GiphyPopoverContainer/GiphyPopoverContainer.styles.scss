@@ -1,0 +1,12 @@
+.giphy-popover {
+  &__container {
+    height: 500px;
+    position: relative;
+    overflow-y: auto;
+    padding: 6px 4px;
+  }
+
+  &__content {
+    margin-top: 6px;
+  }
+}

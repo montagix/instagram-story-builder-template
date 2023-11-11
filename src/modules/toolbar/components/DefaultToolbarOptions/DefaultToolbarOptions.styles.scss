@@ -1,0 +1,14 @@
+.toolbar-options {
+  display: flex;
+  gap: 1px;
+  align-items: center;
+  padding: 5px;
+
+  .icon-btn {
+    background-color: transparent;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.20);
+    }
+  }
+}

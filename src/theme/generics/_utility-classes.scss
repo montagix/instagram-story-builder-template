@@ -1,0 +1,30 @@
+:root {
+  --main-color: #0094FF;
+  --main-lite-color: #E8F5FF;
+  --main-dark-color: #00000033;
+  --second-color: #CCCCCC;
+
+  --danger-color: #FD4B5A;
+  --warning-color: #FFA722;
+  --success-color: #91D84A;
+
+  --accent-color: #FFFFFF;
+}
+
+body {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  color: var(--accent-color);
+}
+
+button {
+  all: unset;
+}
+
+.relative {
+  position: relative;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}

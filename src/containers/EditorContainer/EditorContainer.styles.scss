@@ -1,0 +1,18 @@
+.editor-container {
+  &__footer {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    &__stage-options {
+      margin-left: auto;
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    & .story-builder__icon-button:hover > svg > path {
+      fill: var(--accent-color);
+    }
+  }
+}
