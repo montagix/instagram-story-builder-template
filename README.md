@@ -1,32 +1,5 @@
 # Instagram Story Builder Template
 
-The Instagram Story Builder template is meticulously crafted to empower users in creating captivating Instagram stories that resonate. Drawing cues from modern design principles and user-centric features, this template caters to a broad spectrum of users, from social media enthusiasts to digital marketing professionals. The primary objective is to simplify the story creation process while offering a plethora of creative tools to make each story unique and engaging.
-
-![Instagram Story Builder Cover](https://i.imgur.com/YMM4qlF.png)
-
-## Overview
-
-Instagram stories are a quintessential aspect of the digital storytelling landscape. The Instagram Story Builder template acknowledges the creative potential of stories and offers a streamlined, intuitive platform to build compelling narratives. By encapsulating a variety of multimedia elements and creative tools, this template presents a robust framework for crafting visually appealing stories that echo with the audience.
-
-## Key Features
-
-### Text Addition Functionality
-Annotate your stories with personalized text messages. The text addition tool provides a simple yet powerful interface to inscribe your thoughts and messages onto your visual narrative.
-
-### Image Insertion
-Incorporate images into your stories effortlessly. Whether it's a memorable photo or a creative graphic, the image insertion tool ensures your visuals are showcased perfectly.
-
-### Video Insertion
-Enrich your storytelling with moving visuals. The video insertion tool facilitates the easy incorporation of video clips into your stories, enhancing the dynamic storytelling experience.
-
-### Element Ordering System
-Manage the visual hierarchy of your story elements with ease. The element ordering system allows for intuitive foreground and background management, ensuring a well-composed visual presentation.
-
-### Drag and Resize Elements
-Enjoy absolute control over element positioning and sizing. The user-friendly drag and resize functionality ensures your story elements are placed and sized to perfection.
-
-### Text Modification Toolkit
-Fine-tune your text elements with our comprehensive text modification toolkit. Tailor the font style, size, color, and alignment to resonate with your narrative theme.
 
 ## Installation
 
