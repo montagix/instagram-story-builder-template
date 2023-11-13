@@ -13,6 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set up .npmrc
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.MONTAGIX_SDK_AUTH_TOKEN }}
+        run: |
+          echo "@montagix:registry=https://npm.pkg.github.com/" > .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${NPM_AUTH_TOKEN}" >> .npmrc
+
       - name: Install dependencies and build
         run: |
           npm install
