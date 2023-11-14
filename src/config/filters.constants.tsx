@@ -44,7 +44,7 @@ export const DEFAULT_FILTERS: FilterOption[] = [
   },
   {
     icon: <img src={GlodenGlowFilterIcon} />,
-    description: 'Golden Glow',
+    description: 'Golden',
     filter: () => new GoldenGlowFilter(),
   },
   {
@@ -79,12 +79,12 @@ export const DEFAULT_FILTERS: FilterOption[] = [
   },
   {
     icon: <img src={VelvetTouchFilterIcon} />,
-    description: 'Velvet Touch',
+    description: 'Velvet',
     filter: () => new VelvetTouchFilter(),
   },
   {
     icon: <img src={PeachyKeenFilterIcon} />,
-    description: 'Peachy Keen',
+    description: 'Peachy',
     filter: () => new PeachyKeenFilter(),
   },
   {
@@ -99,7 +99,7 @@ export const DEFAULT_FILTERS: FilterOption[] = [
   },
   {
     icon: <img src={BlushBloomFilterIcon} />,
-    description: 'Blush Bloom',
+    description: 'Blush',
     filter: () => new BlushBloomFilter(),
   },
 ];

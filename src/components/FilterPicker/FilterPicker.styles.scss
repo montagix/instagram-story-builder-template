@@ -119,34 +119,41 @@
     grid-template-columns: repeat(3, 1fr);
 
     &__item {
-      width: auto;
-      height: 66px;
-      box-sizing: border-box;
-      background-color: transparent;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-      align-items: center;
-      justify-content: center;
       border: 1px solid #DBDBDB;
+      box-sizing: border-box;
+      padding: 1px;
 
-      font-family: 'SF Pro Display';
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: normal;
-      color: black;
+      &__button {
+        width: 66px;
+        height: 66px;
+        box-sizing: border-box;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        cursor: pointer;
 
-      & > img {
-        width: 24px;
-        height: 24px;
-        object-fit: cover;
+        font-family: 'SF Pro Display';
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        color: black;
+        text-align: center;
+        overflow-y: hidden;
+
+        & > img {
+          width: 24px;
+          height: 24px;
+          object-fit: cover;
+        }
       }
 
-      &:hover {
-        outline: 2px solid var(--main-color);
-        outline-offset: -5px;
-        cursor: pointer;
+      &:hover > &__button {
+        border: 2px solid var(--main-color);
         color: var(--main-color);
       }
     }

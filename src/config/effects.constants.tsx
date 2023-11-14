@@ -45,7 +45,7 @@ export const DEFAULT_EFFECTS: FilterOption[] = [
   },
   {
     icon: <img src={ChromaticPulseEffectIcon} />,
-    description: 'Chromatic Pulse',
+    description: 'Pulse',
     filter: () => new ChromaticPulseEffect(),
   },
   {
@@ -55,7 +55,7 @@ export const DEFAULT_EFFECTS: FilterOption[] = [
   },
   {
     icon: <img src={TriangeWindowsEffectIcon} />,
-    description: 'Triange Windows',
+    description: 'Triangles',
     filter: () => new TriangleWindowsEffect(),
   },
   {

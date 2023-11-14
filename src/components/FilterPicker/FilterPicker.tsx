@@ -27,14 +27,15 @@ const FilterPicker = (props: FilterPickerProps) => (
         <div className="filter-picker__container">
           <div className="filter-picker__container__grid">
             {props.filters.map((option) => (
-              <button
-                key={`filter-${option.description}`}
-                className="filter-picker__container__grid__item"
-                onClick={() => props.onFilterSet(option.filter())}
-              >
-                {option.icon}
-                {option.description}
-              </button>
+              <div className='filter-picker__container__grid__item' key={`filter-${option.description}`}>
+                <button
+                  className="filter-picker__container__grid__item__button"
+                  onClick={() => props.onFilterSet(option.filter())}
+                >
+                  {option.icon}
+                  {option.description}
+                </button>
+              </div>
             ))}
           </div>
         </div>

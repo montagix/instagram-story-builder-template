@@ -10,7 +10,20 @@
       align-items: center;
     }
 
-    & > .icon-btn:hover > svg > path {
-      fill: var(--accent-color);
+    & .icon-btn {
+      width: 30px;
+      height: 30px;
+
+      & > svg {
+        height: 100%;
+
+        & > path {
+          fill: var(--main-color);
+        }
+      }
+
+      &:hover > svg > path {
+        fill: var(--accent-color);
+      }
     }
   }

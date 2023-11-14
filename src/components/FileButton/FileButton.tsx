@@ -11,7 +11,9 @@ const FileButton = (props: FileButtonProps) => {
         type="file"
         accept="image/jpeg,image/png,image/webp,video/*"
         onChange={props.onChange}
+        id='file-upload-button'
       />
+      <label htmlFor="file-upload-button"></label>
     </IconButton>
   );
 };

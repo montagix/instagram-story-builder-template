@@ -1,6 +1,7 @@
 import IconButton from '../../../../components/IconButton';
 import ColorPicker from '../../../../components/ColorPicker';
 import Popover from '../../../../components/Popover';
+import './ButtonColorPicker.styles.scss';
 
 interface ButtonColorPickerProps {
   icon: React.ReactElement;
@@ -12,7 +13,7 @@ interface ButtonColorPickerProps {
 
 const ButtonColorPicker = (props: ButtonColorPickerProps) => {
   return (
-    <div>
+    <div className='button-color-picker'>
       <Popover
         trigger={
           <div>

@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 interface ApplicationLayoutHeaderProps {
   onSave: () => Promise<string | null>;
+  isCompositionEmpty?: boolean;
 }
 const ApplicationLayoutHeader = (props: ApplicationLayoutHeaderProps) => {
   const [isLoading, setLoading] = useState(false);
@@ -31,7 +32,7 @@ const ApplicationLayoutHeader = (props: ApplicationLayoutHeaderProps) => {
     <div className="app-layout-header">
       <Button
         value={isLoading ? 'Rendering' : 'Save'}
-        disabled={isLoading}
+        disabled={isLoading || props.isCompositionEmpty}
         onClick={handleSave}
       />
     </div>

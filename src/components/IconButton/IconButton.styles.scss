@@ -12,11 +12,19 @@
     position: relative;
 
     & > svg {
-        height: 100%;
         object-fit: contain;
+
+        & > path {
+            fill: var(--accent-color);
+        }
     }
 
     & > input[type="file"] {
+        position: absolute;
+        display: none;
+    }
+
+    &:has(input[type="file"]) > label {
         position: absolute;
         top: 0;
         left: 0;
@@ -27,9 +35,18 @@
         cursor: pointer;
     }
   
-    &:hover {
+    &:hover, &:active {
         color: var(--accent-color);
         background-color: var(--main-color);
         cursor: pointer;
+
+        & > svg > path {
+            opacity: 1;
+            fill-opacity: 1;
+        }
+    }
+
+    &:active {
+        background: rgba(0, 0, 0, 0.2);
     }
 }

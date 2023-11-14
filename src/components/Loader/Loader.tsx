@@ -2,9 +2,7 @@ import './Loader.styles.scss';
 
 const Loader = (props: React.PropsWithChildren) => (
   <div className="custom-loader">
-    <div className="custom-loader__loading-circle">
-      <div></div>
-    </div>
+    <div className="custom-loader__loading-circle"></div>
 
     {props.children ?? (
       <div>

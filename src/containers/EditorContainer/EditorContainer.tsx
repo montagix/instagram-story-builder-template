@@ -69,7 +69,7 @@ const EditorContainer = observer(() => {
       isLoading={isLoading}
       isInitializing={engine.isInitializing}
     >
-      <ApplicationLayoutHeader onSave={handleSave} />
+      <ApplicationLayoutHeader onSave={handleSave} isCompositionEmpty={isCompositionEmpty} />
 
       <ApplicationLayoutContent
         isEmpty={isCompositionEmpty}
