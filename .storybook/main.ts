@@ -1,5 +1,9 @@
+import {StorybookConfig} from "@storybook/react-vite";
+import {mergeConfig} from "vite";
+import path from "path";
+
 /** @type { import('@storybook/react-vite').StorybookConfig } */
-const config = {
+const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
@@ -14,5 +18,8 @@ const config = {
   docs: {
     autodocs: "tag",
   },
+  core: {
+    crossOriginIsolated: true
+  }
 };
 export default config;
