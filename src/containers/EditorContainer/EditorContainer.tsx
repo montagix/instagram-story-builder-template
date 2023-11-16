@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import { useEngineStoreContext } from '../../contexts/EngineStoreContext';
 import CompositionContainer from '../../modules/composition/Composition';
 import { observer } from 'mobx-react-lite';
-import { ClipNode } from '@montagix/engine';
+import {ClipNode, FadeInTransition, FadeOutTransition} from '@montagix/engine';
 
 import ApplicationLayout from '../../components/ApplicationLayout';
 import ApplicationLayoutHeader from '../../components/ApplicationLayoutHeader';
@@ -63,6 +63,7 @@ const EditorContainer = observer(() => {
     return engine.render();
   }
 
+
   return (
     <ApplicationLayout
       onFileChange={onUploadFile}
@@ -79,6 +80,7 @@ const EditorContainer = observer(() => {
       >
         <CompositionContainer />
       </ApplicationLayoutContent>
+
 
       <ApplicationLayoutFooter
         backgroundColor={engine.backgroundColor}
