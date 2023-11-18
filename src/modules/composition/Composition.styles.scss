@@ -1,0 +1,15 @@
+.app-composition {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    &__editor-container {
+        height: inherit;
+        width: inherit;
+
+        & > canvas {
+            height: inherit;
+            width: inherit;
+        }
+    }
+}
