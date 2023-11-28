@@ -1,4 +1,5 @@
 import {StorybookConfig} from "@storybook/react-vite";
+import {mergeConfig} from "vite";
 
 
 const config: StorybookConfig = {
@@ -18,6 +19,15 @@ const config: StorybookConfig = {
   },
   core: {
     crossOriginIsolated: true
+  },
+  viteFinal: async (config, { configType }) => {
+    return mergeConfig(config, {
+      server:{
+        fs: {
+          strict: false,
+        }
+      }
+    })
   }
 };
 export default config;

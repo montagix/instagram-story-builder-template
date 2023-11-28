@@ -16,8 +16,12 @@ const useComposition = () => {
       const node = await engine.text('Double click to edit');
 
       node.startAt = 0;
-      node.style.fontSize = 64;
-      node.style.x = 0;
+      node.style.fontSize = 25;
+      node.style.fontFamily = ['SF Pro'];
+      node.style.fontWeight = '600';
+      node.style.color = 'FFFFFF';
+      node.style.backgroundColor = '000000';
+      
       node.style.zIndex = engine.getBiggestZIndex() + 1;
 
       const layer = engine.sceneGraph.getNodeById(layerId) as CompositingNode;
