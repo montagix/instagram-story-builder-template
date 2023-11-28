@@ -24,7 +24,7 @@ const config: StorybookConfig = {
     return mergeConfig(config, {
       server:{
         fs: {
-            strict: false,
+          strict: false,
         }
       }
     })
