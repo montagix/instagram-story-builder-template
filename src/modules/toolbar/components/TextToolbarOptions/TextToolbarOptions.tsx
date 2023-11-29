@@ -60,32 +60,26 @@ const TextToolbarOptions = observer(({ node }: TextToolbarOptionsProps) => {
 
   function handleChangeFontFamily(font: string) {
     node.style.fontFamily = [font];
-    node.style.update(node.sprite!);
   }
 
   function handleToggleBold(value: boolean) {
     node.style.fontWeight = value ? 'bold' : '400';
-    node.style.update(node.sprite!);
   }
 
   function handleToggleItalic(value: boolean) {
     node.style.fontStyle = value ? 'italic' : 'normal';
-    node.style.update(node.sprite!);
   }
 
   function handleChangeTextColor(color: string) {
     node.style.color = color;
-    node.style.update(node.sprite!);
   }
 
   function handleChangeBackgroundColor(color: string) {
     node.style.backgroundColor = color;
-    node.style.update(node.sprite!);
   }
 
   function handleRemoveBackgroundColor() {
     node.style.backgroundColor = null;
-    node.style.update(node.sprite!);
   }
 
   return (

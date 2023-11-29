@@ -156,8 +156,7 @@ const useMakeClipInteractive = (props: UseCreateInteractiveClipProps) => {
 
       node.style.x = pixiCoords.x;
       node.style.y = pixiCoords.y;
-
-      node.style.update(node.sprite as any);
+      
     });
 
     moveableRef.current.on('resize', (event) => {
@@ -184,8 +183,7 @@ const useMakeClipInteractive = (props: UseCreateInteractiveClipProps) => {
 
       node.style.x = x;
       node.style.y = y;
-
-      node.style.update(node.sprite as any);
+      
       event.target.style.transform = event.transform;
     });
 
@@ -195,7 +193,6 @@ const useMakeClipInteractive = (props: UseCreateInteractiveClipProps) => {
       const { rotation } = parseTransform(event.transform);
 
       node.style.rotation = rotation;
-      node.style.update(node.sprite as any);
     });
 
     moveableRef.current.on('dragEnd', (_) => engine.commit());

@@ -26,14 +26,12 @@ const DefaultToolbarOptions = observer(
       if (node.style.zIndex >= engine.getBiggestZIndex()) return;
 
       node.style.zIndex += 2;
-      node.style.update(node.sprite!);
     }
 
     function handleLayerDown() {
       if (node.style.zIndex <= 1) return;
 
       node.style.zIndex -= 2;
-      node.style.update(node.sprite!);
     }
 
     return (
