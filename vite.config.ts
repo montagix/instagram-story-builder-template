@@ -14,6 +14,10 @@ export default defineConfig({
     }),
   ],
 
+  optimizeDeps: {
+    exclude: ["@montagix/engine"]
+  },
+
   // Configuration for building your library.
   // See: https://vitejs.dev/guide/build.html#library-mode
   build: {
