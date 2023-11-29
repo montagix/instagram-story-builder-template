@@ -11,12 +11,23 @@ const useComposition = () => {
   const [isLoading, setLoading] = useState(false);
   const { layerId } = useApplicationContext();
 
+  const domToPixiFontSize = (fontSize: number) => {
+    const [canvasX, canvasY] = engine.resolution;
+    const parentNode = (engine.app.view.parentNode as HTMLElement | null);
+
+    if(!parentNode) return fontSize;
+
+    const container = parentNode.getBoundingClientRect();
+
+    return (fontSize / container.width) * canvasX;
+  };
+
   async function handleAddText() {
     try {
       const node = await engine.text('Double click to edit');
 
       node.startAt = 0;
-      node.style.fontSize = 25;
+      node.style.fontSize = domToPixiFontSize(25);
       node.style.fontFamily = ['SF Pro'];
       node.style.fontWeight = '600';
       node.style.color = 'FFFFFF';
