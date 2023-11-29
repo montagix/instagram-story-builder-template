@@ -3,7 +3,7 @@ import IconButton from '../../../../components/IconButton';
 import LayerDownIcon from '../../../../assets/images/layer-down-icon.svg';
 import LayerUpIcon from '../../../../assets/images/layer-up-icon.svg';
 import DeleteIconIcon from '../../../../assets/images/delete-icon.svg';
-import { ClipNode, MediaClipNode } from '@montagix/engine';
+import { ClipNode } from '@montagix/engine';
 import { useEngineStoreContext } from '../../../../contexts/EngineStoreContext';
 import './DefaultToolbarOptions.styles.scss';
 import { observer } from 'mobx-react-lite';
@@ -26,14 +26,14 @@ const DefaultToolbarOptions = observer(
       if (node.style.zIndex >= engine.getBiggestZIndex()) return;
 
       node.style.zIndex += 2;
-      node.style.update((node as MediaClipNode).sprite!);
+      node.style.update(node.sprite!);
     }
 
     function handleLayerDown() {
       if (node.style.zIndex <= 1) return;
 
       node.style.zIndex -= 2;
-      node.style.update((node as MediaClipNode).sprite!);
+      node.style.update(node.sprite!);
     }
 
     return (
