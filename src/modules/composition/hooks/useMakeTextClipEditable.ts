@@ -89,7 +89,6 @@ const useMakeTextClipEditable = (props: UseCreateEditableClipProps) => {
 
     input.addEventListener('input', (event: any) => {
       clip.changeText(event.target.value);
-      clip.style.update(clip.sprite!);
     });
 
     return input;
