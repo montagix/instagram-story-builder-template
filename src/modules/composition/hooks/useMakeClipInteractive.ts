@@ -2,7 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import { reaction } from 'mobx';
 import Moveable from 'moveable';
 import engineStore from '../../../store/EngineStore';
-import { ClipNode, MediaClipNode, TextNode } from '@montagix/engine';
+import {
+  ClipNode,
+  GIFNode,
+  ImageNode,
+  TextNode,
+  VideoNode,
+} from '@montagix/engine';
 
 interface UseCreateInteractiveClipProps {
   targetRef: React.RefObject<HTMLElement>;
@@ -68,7 +74,13 @@ const useMakeClipInteractive = (props: UseCreateInteractiveClipProps) => {
 
     const node = engine.sceneGraph.getNodeById(selectedNodeId);
 
-    if (node == null || !(node instanceof ClipNode)) {
+    const hasStyle =
+      node instanceof ImageNode ||
+      node instanceof VideoNode ||
+      node instanceof TextNode ||
+      node instanceof GIFNode;
+
+    if (!hasStyle) {
       return;
     }
 
@@ -116,11 +128,15 @@ const useMakeClipInteractive = (props: UseCreateInteractiveClipProps) => {
       return;
     }
 
-    const node = engine.sceneGraph.getNodeById(selectedNodeId) as
-      | MediaClipNode
-      | TextNode;
+    const node = engine.sceneGraph.getNodeById(selectedNodeId) as ClipNode;
 
-    if (node.sprite == null) {
+    const hasStyle =
+      node instanceof ImageNode ||
+      node instanceof VideoNode ||
+      node instanceof TextNode ||
+      node instanceof GIFNode;
+
+    if (!hasStyle) {
       return;
     }
 
@@ -156,14 +172,14 @@ const useMakeClipInteractive = (props: UseCreateInteractiveClipProps) => {
       x = coord.x;
       y = coord.y;
 
-      if (node instanceof MediaClipNode) {
-        node.style.width += width;
-        node.style.height += height;
-      }
-
-      if (node instanceof TextNode) {
-        const fontSize = node.style.fontSize + width / 10;
-        node.changeFontSize(fontSize);
+      if (node instanceof ClipNode) {
+        if (node instanceof TextNode) {
+          const fontSize = node.style.fontSize + width / 10;
+          node.style.fontSize = fontSize;
+        } else {
+          node.style.width += width;
+          node.style.height += height;
+        }
       }
 
       node.style.x = x;
