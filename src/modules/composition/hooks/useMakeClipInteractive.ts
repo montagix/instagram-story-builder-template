@@ -9,10 +9,57 @@ interface UseCreateInteractiveClipProps {
   toolbarRef: React.RefObject<HTMLElement>;
 }
 
+const pixiConvertor = () => {
+  const engine = engineStore.getEngine();
+  const [canvasX, canvasY] = engine.resolution;
+  const parentNode = (engine.app.view.parentNode as HTMLElement | null);
+
+  if(!parentNode) return;
+
+  const container = parentNode.getBoundingClientRect();
+
+  function coordinatesToDom(x: number, y: number) {
+    return {
+      x: (x / canvasX) * container.width,
+      y: (y / canvasY) * container.height,
+    };
+  }
+
+  function coordinatesToPixi(x: number, y: number) {
+    return {
+      x: (x / container.width) * canvasX,
+      y: (y / container.height) * canvasY,
+    };
+  }
+
+  function sizeToDom(width: number, height: number) {
+    return {
+      width: (width / canvasX) * container.width,
+      height: (height / canvasY) * container.height,
+    }
+  }
+
+  function sizeToPixi(width: number, height: number) {
+    return {
+      width: (width / container.width) * canvasX,
+      height: (height / container.height) * canvasY
+    }
+  }
+
+  return {
+    pixiToDomCoordinates: coordinatesToDom,
+    domToPixiCoordinates: coordinatesToPixi,
+    pixiToDomSizes: sizeToDom,
+    domToPixiSizes: sizeToPixi
+  }
+}
+
 const useMakeClipInteractive = (props: UseCreateInteractiveClipProps) => {
   const moveableRef = useRef<Moveable | null>(null);
   const engine = engineStore.getEngine();
   const selectedNodeId = engine.selectedNodeId;
+  let convertor = pixiConvertor();
+  
 
   useEffect(() => {
     if (selectedNodeId == null || props.targetRef.current == null) {
@@ -25,7 +72,18 @@ const useMakeClipInteractive = (props: UseCreateInteractiveClipProps) => {
       return;
     }
 
+    convertor = pixiConvertor()!;
+
     Object.assign(props.targetRef.current.style, node.style?.toStyleObject());
+  
+    const transorm = parseTransform(props.targetRef.current.style.transform);
+    const domCoord = convertor.pixiToDomCoordinates(transorm.x, transorm.y);
+    const size = convertor.pixiToDomSizes(props.targetRef.current.clientWidth, props.targetRef.current.clientHeight);
+    
+    props.targetRef.current.style.transform = `translate(${domCoord.x}px, ${domCoord.y}px) rotate(${transorm.rotation}rad)`;
+    props.targetRef.current.style.width = `${size.width}px`;
+    props.targetRef.current.style.height = `${size.height}px`;
+    
 
     const disposer = reaction(
       () => node.style?.toStyleObject(),
@@ -35,6 +93,15 @@ const useMakeClipInteractive = (props: UseCreateInteractiveClipProps) => {
         }
 
         Object.assign(props.targetRef.current.style, newStyle);
+
+        const transorm = parseTransform(props.targetRef.current.style.transform);
+        const domCoord = convertor!.pixiToDomCoordinates(transorm.x, transorm.y);
+        const size = convertor!.pixiToDomSizes(props.targetRef.current.clientWidth, props.targetRef.current.clientHeight);
+        
+        props.targetRef.current.style.transform = `translate(${domCoord.x}px, ${domCoord.y}px) rotate(${transorm.rotation}rad)`;
+        props.targetRef.current.style.width = `${size.width}px`;
+        props.targetRef.current.style.height = `${size.height}px`;
+
         moveableRef.current?.updateRect();
       }
     );
@@ -69,15 +136,25 @@ const useMakeClipInteractive = (props: UseCreateInteractiveClipProps) => {
     });
 
     moveableRef.current.on('drag', ({ translate: [x, y] }) => {
-      node.style.x = x;
-      node.style.y = y;
+      const pixiCoords = convertor!.domToPixiCoordinates(x, y);
+
+      node.style.x = pixiCoords.x;
+      node.style.y = pixiCoords.y;
 
       node.style.update(node.sprite as any);
     });
 
     moveableRef.current.on('resize', (event) => {
-      const [width, height] = event.delta;
-      const { x, y } = parseTransform(event.transform);
+      let [width, height] = event.delta;
+      let { x, y } = parseTransform(event.transform);
+
+      const sizes = convertor!.domToPixiSizes(width, height);
+      width = sizes.width;
+      height = sizes.height;
+
+      const coord = convertor!.domToPixiCoordinates(x, y);
+      x = coord.x;
+      y = coord.y;
 
       if (node instanceof MediaClipNode) {
         node.style.width += width;
